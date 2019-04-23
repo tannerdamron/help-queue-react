@@ -41,7 +41,8 @@ module.exports = {
             "react",
           ],
           plugins: [
-            "react-hot-loader/babel"
+            "react-hot-loader/babel",
+            "styled-jsx/babel"
           ]
         }
       },
@@ -58,5 +59,4 @@ module.exports = {
       filename: resolve(__dirname, "build", "index.html"),
     }),
   ]
-  
 };

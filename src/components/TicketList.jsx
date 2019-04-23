@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import Ticket from './Ticket';
 
@@ -17,6 +16,11 @@ let masterTicketList = [
     names: 'Imani and Jacob',
     location: '9F',
     issue: 'No workyyyyyyyy'
+  },
+  {
+    names: 'Pa and Mum',
+    location: 'B9',
+    issue: 'Why my code STANK?'
   }
 ];
 

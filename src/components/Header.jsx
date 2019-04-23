@@ -1,9 +1,18 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
 function Header(){
   return(
-    <h1>Help Queue</h1>
+    <div>
+      <style jsx global>{`
+        .header {
+          color: aquamarine;
+          text-shadow: 1px 1px black;
+          font-family: helvetica;
+          font-size: 50px;
+        }
+      `}</style>
+      <h1 className="header">Help Queue</h1>
+    </div>
   );
 }
 
