@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Ticket(props){
+function Ticket(props) {
+  const {
+    location,
+    names,
+    formattedWaitTime,
+    issue,
+  } = props;
   return (
     <div>
-      <h3 className="clickable">{props.location} - {props.names}</h3>
-      <p className="clickable"><em>{props.issue}</em></p>
-      <hr/>
+      <h3>
+        {location}
+        {`- ${names}`}
+      </h3>
+      <h4>{formattedWaitTime}</h4>
+      <p><em>{issue}</em></p>
+      <hr />
     </div>
   );
 }
@@ -14,7 +24,8 @@ function Ticket(props){
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  issue: PropTypes.string.isRequired
+  issue: PropTypes.string.isRequired,
+  formattedWaitTime: PropTypes.string.isRequired,
 };
 
 export default Ticket;
