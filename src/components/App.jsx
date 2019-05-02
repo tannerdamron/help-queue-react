@@ -6,6 +6,7 @@ import Header from './Header';
 import TicketList from './TicketList';
 import NewTicketControl from './NewTicketControl';
 import Error404 from './Error404';
+import Admin from './Admin';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +65,10 @@ class App extends React.Component {
                 onNewTicketCreation={this.handleAddingNewTicketToList}
               />
             )}
+          />
+          <Route
+            path="/admin"
+            render={props => <Admin ticketList={masterTicketList} currentRouterPath={props.location.pathname} />}
           />
           <Route component={Error404} />
         </Switch>

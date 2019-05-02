@@ -7,18 +7,29 @@ function Ticket(props) {
     names,
     formattedWaitTime,
     issue,
+    currentRouterPath,
   } = props;
-  return (
+  const ticketInfo = (
     <div>
-      <h3>
-        {location}
-        {`- ${names}`}
-      </h3>
+      <h3>{`${location} - ${names}`}</h3>
       <h4>{formattedWaitTime}</h4>
       <p><em>{issue}</em></p>
+      <p>{currentRouterPath}</p>
       <hr />
     </div>
   );
+  return (
+    <div
+      onClick={() => { alert(`hey, you just clicked the ticket belonging to ${names}`); }}
+      onKeyPress={handleKeyPress}
+      role="button"
+      tabIndex={0}
+    >
+      {ticketInfo}
+      <p>if worked</p>
+    </div>
+  );
+
 }
 
 Ticket.propTypes = {
@@ -26,6 +37,11 @@ Ticket.propTypes = {
   location: PropTypes.string.isRequired,
   issue: PropTypes.string.isRequired,
   formattedWaitTime: PropTypes.string.isRequired,
+  currentRouterPath: PropTypes.string,
+};
+
+Ticket.defaultProps = {
+  currentRouterPath: PropTypes.string,
 };
 
 export default Ticket;
