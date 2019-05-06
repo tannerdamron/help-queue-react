@@ -14,9 +14,6 @@ class App extends React.Component {
     this.state = {
       masterTicketList: [],
     };
-    this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(
-      this,
-    );
   }
 
   componentDidMount() {
@@ -39,14 +36,6 @@ class App extends React.Component {
     this.setState({ masterTicketList: newMasterTicketList });
   }
 
-  handleAddingNewTicketToList(newTicket) {
-    const { masterTicketList } = this.state;
-    const newMasterTicketList = masterTicketList.slice();
-    newTicket.formattedWaitTime = newTicket.timeOpen.fromNow(true);
-    newMasterTicketList.push(newTicket);
-    this.setState({ masterTicketList: newMasterTicketList });
-  }
-
   render() {
     const { masterTicketList } = this.state;
     return (
@@ -61,9 +50,7 @@ class App extends React.Component {
           <Route
             path="/newticket"
             render={() => (
-              <NewTicketControl
-                onNewTicketCreation={this.handleAddingNewTicketToList}
-              />
+              <NewTicketControl />
             )}
           />
           <Route

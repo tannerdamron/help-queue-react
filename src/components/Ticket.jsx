@@ -21,12 +21,10 @@ function Ticket(props) {
   return (
     <div
       onClick={() => { alert(`hey, you just clicked the ticket belonging to ${names}`); }}
-      onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
     >
       {ticketInfo}
-      <p>if worked</p>
     </div>
   );
 

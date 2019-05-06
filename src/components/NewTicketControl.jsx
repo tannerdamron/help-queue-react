@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ConfirmationQuestions from './ConfirmationQuestions';
 import NewTicketForm from './NewTicketForm';
 
@@ -18,10 +17,9 @@ class NewTicketControl extends React.Component {
 
   render() {
     const { formVisibleOnPage } = this.state;
-    const { onNewTicketCreation } = this.props;
     let currentlyVisibleContent = null;
     if (formVisibleOnPage) {
-      currentlyVisibleContent = <NewTicketForm onNewTicketCreation={onNewTicketCreation} />;
+      currentlyVisibleContent = <NewTicketForm />;
     } else {
       // eslint-disable-next-line max-len
       currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation} />;
@@ -33,9 +31,5 @@ class NewTicketControl extends React.Component {
     );
   }
 }
-
-NewTicketControl.propTypes = {
-  onNewTicketCreation: PropTypes.func.isRequired,
-};
 
 export default NewTicketControl;
