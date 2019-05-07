@@ -17,6 +17,7 @@ class App extends React.Component {
     this.state = {
       selectedTicket: null,
     };
+    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
   }
 
   componentDidMount() {
