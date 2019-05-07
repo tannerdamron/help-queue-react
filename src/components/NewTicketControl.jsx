@@ -8,7 +8,6 @@ class NewTicketControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
     };
-    this.handleTroubleshootingConfirmation = this.handleTroubleshootingConfirmation.bind(this);
   }
 
   handleTroubleshootingConfirmation() {
@@ -22,7 +21,7 @@ class NewTicketControl extends React.Component {
       currentlyVisibleContent = <NewTicketForm />;
     } else {
       // eslint-disable-next-line max-len
-      currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation} />;
+      currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={e => this.handleTroubleshootingConfirmation(e)} />;
     }
     return (
       <div>

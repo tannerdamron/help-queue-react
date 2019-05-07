@@ -6,40 +6,39 @@ function Ticket(props) {
     location,
     names,
     formattedWaitTime,
-    issue,
     currentRouterPath,
+    ticketId,
+    onTicketSelection,
   } = props;
   const ticketInfo = (
     <div>
       <h3>{`${location} - ${names}`}</h3>
       <h4>{formattedWaitTime}</h4>
-      <p><em>{issue}</em></p>
-      <p>{currentRouterPath}</p>
       <hr />
     </div>
   );
-  return (
-    <div
-      onClick={() => { alert(`hey, you just clicked the ticket belonging to ${names}`); }}
-      role="button"
-      tabIndex={0}
-    >
-      {ticketInfo}
-    </div>
-  );
-
+  if (currentRouterPath === '/admin') {
+    return (
+      <div onClick={() => {onTicketSelection(ticketId).bind(this);}}>
+        {ticketInfo}
+      </div>
+    );
+  }
+  return <div>{ticketInfo}</div>;
 }
 
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  issue: PropTypes.string.isRequired,
-  formattedWaitTime: PropTypes.string.isRequired,
-  currentRouterPath: PropTypes.string,
+  // formattedWaitTime: PropTypes.string.isRequired,
+  currentRouterPath: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onTicketSelection: PropTypes.func,
+  ticketId: PropTypes.string.isRequired,
 };
 
 Ticket.defaultProps = {
-  currentRouterPath: PropTypes.string,
+  currentRouterPath: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onTicketSelection: PropTypes.func,
 };
 
 export default Ticket;
